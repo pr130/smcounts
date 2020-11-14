@@ -41,12 +41,11 @@ app_secret <- Sys.getenv("FB_APP_SECRET")
 # first, we need a long-lived user access token - for that we need a short-lived user access token
 # get a short lived user access token using the graph explorer tool https://graph.facebook.com/v9.0/
 # make sure to give the page_insights permission (Category "Other")
-fb_user_short_lived <- "EAAFRLE6zV1UBADjIqUhjGs7yweHf49GA0ulEZAQuXqt0SOCjnWWzpQWyhrp4mwy6IswBkCPQnQxyacJh4qI5dsTNsI2aK2ZBHOpOIxZCNm3yvU0Ys5YBk9XIY32yG0C6ZAosINqNIeSbk0a0wRGN7Lj7mO04x4Y6EjcZBwn93KZAkWA9pjC2jZALr5rQESTujI4bF6q8gxzhdNUAXZCFBygMz58reeIhLPgZD"
+fb_user_short_lived <- "YOUR SHORT LIVED TOKEN"
 user_at_url <- glue::glue("https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id={app_id}&client_secret={app_secret}&fb_exchange_token={fb_user_short_lived}")
 
 res <- httr::GET(user_at_url)
-fb_user_long_lived <- content(res, type = "application/json")$access_token
-
+fb_user_long_lived <- httr::content(res, type = "application/json")$access_token
 
 # get page accesstoken
 # If you used a long-lived User access token, the Page access token has no expiration date.
