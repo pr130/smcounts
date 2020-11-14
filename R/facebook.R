@@ -4,6 +4,11 @@
 #' @return integer. number of Facebook likes.
 #' @export
 ca_facebook <- function(page_id = Sys.getenv("FB_PAGE_ID"), access_token = Sys.getenv("FB_PAGE_TOKEN")) {
+
+  if (page_id == "" | access_token == "") {
+    stop("Page_id and/or access_token are not specified. Make sure to pass them directly or set them as environment variables.")
+  }
+
   now <- Sys.time()
   today <- as.Date(now)
   yesterday <- now - lubridate::days(1)

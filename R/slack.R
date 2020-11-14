@@ -2,6 +2,9 @@
 #' @return integer. number of CorrelAid slack members
 #' @export
 ca_slack <- function() {
+  if (!file.exists("./.slackr")) {
+    stop("./.slackr does not exist.")
+  }
   slackr::slackr_setup(config_file = "./.slackr")
   nrow(slackr::slackr_users())
 }

@@ -5,6 +5,9 @@
 #' @return integer. number of CorrelAid newsletter subscribers
 #' @export
 ca_newsletter <- function(mc_key = Sys.getenv("MAILCHIMP_KEY"), mc_list_id = Sys.getenv("MAILCHIMP_LIST_ID")) {
+  if (mc_key == "" | mc_list_id == "") {
+    stop("mc_key and/or mc_list_id are empty. Make sure to either pass them directly or set them as environment variables.")
+  }
   mc_api_key <- split_api_key(mc_key)$mc_api_key
   mc_server <- split_api_key(mc_key)$mc_server
 
