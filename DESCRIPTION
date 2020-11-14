@@ -15,4 +15,6 @@ Imports:
     lubridate,
     stringr,
     tibble,
-    glue
+    glue,
+    rtweet,
+    slackr
