@@ -1,7 +1,7 @@
-README
+smcounts
 ================
 
-## Installation
+# Installation
 
 When on *Raspberry Pi* / Linux, try installing the dependencies with
 [{bspm}](https://github.com/Enchufa2/bspm) first. This will install the
@@ -21,7 +21,48 @@ about whether you want to update packages):
 remotes::install_github("friep/smcounts")
 ```
 
-## Setup
+# Usage
+
+After setting up the necessary authentication files (see below), you can
+use {smcounts} as follows:
+
+``` r
+library(smcounts)
+library(dplyr)
+
+fb <- ca_facebook()
+tw <- ca_twitter()
+mc <- ca_newsletter()
+sl <- ca_slack()
+
+# bind them together
+all <- bind_rows(fb, tw, mc, sl)
+```
+
+Or use `collect_data` to get all platforms (with default arguments to
+the individual functions):
+
+``` r
+all <- collect_data()
+```
+
+You can turn off specific platforms (e.g. when you don’t need it or if
+you need to pass custom arguments):
+
+``` r
+all_except_slack <- collect_data(slack = FALSE)
+```
+
+### helper functions
+
+You can use `mailchimp_lists` to find out the id of the audience you
+want to track:
+
+``` r
+mailchimp_lists() %>% bind_rows() %>%  as_tibble()
+```
+
+# Setup
 
 Depending on which functions you want to use, you’ll need:
 
@@ -39,7 +80,7 @@ Depending on which functions you want to use, you’ll need:
     FB_APP_SECRET="app secret of app that you created in the developer portal"
     FB_PAGE_TOKEN="the never-expiring page token that you generated (see below)"
 
-### Facebook Authentication
+## Facebook Authentication
 
 Facebook Authentication is a mess. Finding the page ID in the user
 interface was quite hard - the UI changes constantly. Just click around

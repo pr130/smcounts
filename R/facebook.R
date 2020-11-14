@@ -1,7 +1,7 @@
 #' get number of facebook likes
 #' @param page_id integer. facebook id of the page. Defaults to environment variable FB_PAGE_ID.
 #' @param access_token character. page access token that never expires. see readme how to generate it. Defaults to environment variable FB_PAGE_TOKEN.
-#' @return integer. number of Facebook likes.
+#' @return tibble.
 #' @export
 ca_facebook <- function(page_id = Sys.getenv("FB_PAGE_ID"), access_token = Sys.getenv("FB_PAGE_TOKEN")) {
 
@@ -28,5 +28,6 @@ ca_facebook <- function(page_id = Sys.getenv("FB_PAGE_ID"), access_token = Sys.g
     unlist() %>%
     as.Date()
   now_ind <- which(end_dates == today)
-  return(values[[now_ind]]$value)
+  count <- values[[now_ind]]$value
+  return(tibble::tibble(date = today, platform = "facebook", n = count))
 }

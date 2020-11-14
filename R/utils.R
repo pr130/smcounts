@@ -7,26 +7,25 @@
 #' @return a tibble with 3 columns: character column platform which contains the name of the platform, integer column n with the count, and date which is constant and set to today.
 #' @export
 collect_data <- function(slack = TRUE, facebook = TRUE, twitter = TRUE, mailchimp = TRUE) {
-  df <- tibble::tibble(platform = c(), n = c())
+  df <- tibble::tibble(date = c(), platform = c(), n = c())
   if (slack) {
-    slack_count <- ca_slack()
-    df <- tibble::add_row(df, platform = "slack", n = slack_count)
+    slack_df <- ca_slack()
+    df <- rbind(df, slack_df)
   }
 
   if (facebook) {
-    facebook_count <- ca_facebook()
-    df <- tibble::add_row(df, platform = "facebook", n = facebook_count)
+    facebook_df <- ca_facebook()
+    df <- rbind(df, facebook_df)
   }
 
   if (twitter) {
-    twitter_count <- ca_twitter()
-    df <- tibble::add_row(df, platform = "twitter", n = twitter_count)
+    twitter_df <- ca_twitter()
+    df <- rbind(df, twitter_df)
   }
 
   if (mailchimp) {
-    mailchimp_count <- ca_newsletter()
-    df <- tibble::add_row(df, platform = "newsletter", n = mailchimp_count)
+    mailchimp_df <- ca_newsletter()
+    df <- rbind(df, mailchimp_df)
   }
-  df$date <- Sys.Date()
   return(df)
 }

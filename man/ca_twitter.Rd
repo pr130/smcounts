@@ -10,7 +10,7 @@ ca_twitter(user = Sys.getenv("TWITTER_USER"))
 \item{user}{character. Twitter user to get follower count for. Defaults to Sys.getenv("TWITTER_USER")}
 }
 \value{
-integer. follower count
+tibble
 }
 \description{
 get follower count for CorrelAid twitter account

@@ -15,7 +15,7 @@ ca_newsletter(
 \item{mc_list_id}{character. id of mailchimp list / audience (extract this manually previously). Defaults to environment variable MAILCHIMP_LIST_ID}
 }
 \value{
-integer. number of CorrelAid newsletter subscribers
+tibble
 }
 \description{
 c.f. https://mailchimp.com/developer/api/marketing/lists/

@@ -15,7 +15,7 @@ ca_facebook(
 \item{access_token}{character. page access token that never expires. see readme how to generate it. Defaults to environment variable FB_PAGE_TOKEN.}
 }
 \value{
-integer. number of Facebook likes.
+tibble.
 }
 \description{
 get number of facebook likes

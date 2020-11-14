@@ -2,7 +2,7 @@
 #' @param mc_key character. API key from mailchimp. Defaults to environment variable MAILCHIMP_KEY
 #' @param mc_list_id character. id of mailchimp list / audience (extract this manually previously). Defaults to environment variable MAILCHIMP_LIST_ID
 #' @description c.f. https://mailchimp.com/developer/api/marketing/lists/
-#' @return integer. number of CorrelAid newsletter subscribers
+#' @return tibble
 #' @export
 ca_newsletter <- function(mc_key = Sys.getenv("MAILCHIMP_KEY"), mc_list_id = Sys.getenv("MAILCHIMP_LIST_ID")) {
   if (mc_key == "" | mc_list_id == "") {
@@ -15,7 +15,7 @@ ca_newsletter <- function(mc_key = Sys.getenv("MAILCHIMP_KEY"), mc_list_id = Sys
                    httr::authenticate(user = "anything", password = mc_api_key))
   httr::stop_for_status(req)
   newsletter <- httr::content(req, type = "application/json")
-  newsletter$stats$member_count
+  return(tibble::tibble(date = Sys.Date(), platform = "mailchimp", n = newsletter$stats$member_count))
 }
 
 

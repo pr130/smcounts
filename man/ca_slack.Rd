@@ -11,6 +11,8 @@ ca_slack(slackr_path = ".slackr")
 }
 \value{
 integer. number of CorrelAid slack members
+
+tibble
 }
 \description{
 get number of slack members
