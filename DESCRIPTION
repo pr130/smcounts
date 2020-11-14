@@ -1,12 +1,11 @@
-Package: correlaidanalytics
+Package: smcounts
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Collect Social Media Follower Counts for Different Platforms
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Frie Preu
+Maintainer: Frie Preu <fr1e@pm.me>
+Description: smcounts can collect follower/member/likes counts for Twitter, Mailchimp audiences, Facebook pages and Slack workspaces.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

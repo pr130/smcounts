@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 .Renviron
 .slackr
+^LICENSE\.md$
