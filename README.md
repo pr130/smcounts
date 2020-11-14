@@ -14,7 +14,8 @@ bspm::enable()
 install.packages(c("magrittr", "httr", "lubridate", "stringr", "tibble", "glue"))
 ```
 
-Then install from GitHub using {remotes}:
+Then install from GitHub using {remotes} (select “none” when it asks you
+about whether you want to update packages):
 
 ``` r
 remotes::install_github("friep/smcounts")

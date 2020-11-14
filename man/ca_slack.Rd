@@ -4,7 +4,10 @@
 \alias{ca_slack}
 \title{get number of slack members}
 \usage{
-ca_slack()
+ca_slack(slackr_path = ".slackr")
+}
+\arguments{
+\item{slackr_path}{character. path to .slackr file. defaults to ".slackr"}
 }
 \value{
 integer. number of CorrelAid slack members
