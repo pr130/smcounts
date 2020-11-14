@@ -1,6 +1,25 @@
 README
 ================
 
+## Installation
+
+When on *Raspberry Pi* / Linux, try installing the dependencies with
+[{bspm}](https://github.com/Enchufa2/bspm) first. This will install the
+packages as binaries instead of compiling them from source, speeding up
+the installation of {smcounts} later.
+
+``` r
+install.packages("bspm")
+bspm::enable()
+install.packages(c("magrittr", "httr", "lubridate", "stringr", "tibble", "glue"))
+```
+
+Then install from GitHub using {remotes}:
+
+``` r
+remotes::install_github("friep/smcounts")
+```
+
 ## Setup
 
 Depending on which functions you want to use, you’ll need:

@@ -1,10 +1,27 @@
 ---
 title: "README"
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Installation
+When on *Raspberry Pi* / Linux, try installing the dependencies with [{bspm}](https://github.com/Enchufa2/bspm) first. This will install the packages as binaries instead of compiling them from source, speeding up the installation of {smcounts} later.
+
+```{r eval=FALSE}
+install.packages("bspm")
+bspm::enable()
+install.packages(c("magrittr", "httr", "lubridate", "stringr", "tibble", "glue"))
+```
+
+Then install from GitHub using {remotes}:
+
+```{r eval=FALSE}
+remotes::install_github("friep/smcounts")
 ```
 
 
