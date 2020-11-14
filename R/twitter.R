@@ -9,4 +9,3 @@ ca_twitter <- function(user = Sys.getenv("TWITTER_USER")) {
   correlaid <- rtweet::lookup_users(user)
   return(correlaid$followers_count)
 }
-

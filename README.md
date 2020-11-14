@@ -11,7 +11,7 @@ the installation of {smcounts} later.
 ``` r
 install.packages("bspm")
 bspm::enable()
-install.packages(c("magrittr", "httr", "lubridate", "stringr", "tibble", "glue"))
+install.packages(c("magrittr", "httr", "lubridate", "stringr", "tibble", "glue", "rtweet", "slackr"))
 ```
 
 Then install from GitHub using {remotes} (select “none” when it asks you

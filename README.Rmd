@@ -15,7 +15,7 @@ When on *Raspberry Pi* / Linux, try installing the dependencies with [{bspm}](ht
 ```{r eval=FALSE}
 install.packages("bspm")
 bspm::enable()
-install.packages(c("magrittr", "httr", "lubridate", "stringr", "tibble", "glue"))
+install.packages(c("magrittr", "httr", "lubridate", "stringr", "tibble", "glue", "rtweet", "slackr"))
 ```
 
 Then install from GitHub using {remotes} (select "none" when it asks you about whether you want to update packages):

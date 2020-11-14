@@ -30,8 +30,3 @@ collect_data <- function(slack = TRUE, facebook = TRUE, twitter = TRUE, mailchim
   df$date <- Sys.Date()
   return(df)
 }
-
-export_to_json <- function(df, path) {
-  j <- df %>% jsonlite::toJSON(pretty = TRUE)
-  jsonlite::write_json(df, path)
-}
