@@ -79,7 +79,8 @@ Depending on which functions you want to use, you’ll need:
     FB_APP_ID="app id of app that you created in the developer portal"
     FB_APP_SECRET="app secret of app that you created in the developer portal"
     FB_PAGE_TOKEN="the never-expiring page token that you generated (see below)"
-
+    TWITTER_USER="handle of twitter user you want to get data for"
+    
 ## Facebook Authentication
 
 Facebook Authentication is a mess. Finding the page ID in the user
